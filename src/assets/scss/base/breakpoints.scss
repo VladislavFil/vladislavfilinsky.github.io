@@ -1,0 +1,51 @@
+// Breakpoints values
+$breakpoints-desc: 1880;
+$breakpoints-sw: 1540;
+$breakpoints-dw: 1440;
+$breakpoints-lg: 1199;
+$breakpoints-md: 1023;
+$breakpoints-sm: 767;
+$breakpoints-xs: 600;
+$breakpoints-xss: 340;
+
+@mixin sw {
+  @include r($breakpoints-sw) {
+    @content;
+  }
+}
+
+@mixin dw {
+  @include r($breakpoints-dw) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @include r($breakpoints-lg) {
+    @content;
+  }
+}
+
+@mixin md {
+  @include r($breakpoints-md) {
+    @content;
+  }
+}
+
+@mixin sm {
+  @include r($breakpoints-sm) {
+    @content;
+  }
+}
+
+@mixin xs {
+  @include r($breakpoints-xs) {
+    @content;
+  }
+}
+
+@mixin xss {
+  @include r($breakpoints-xss) {
+    @content;
+  }
+}

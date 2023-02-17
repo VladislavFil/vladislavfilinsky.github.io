@@ -1,0 +1,62 @@
+mixin dev-sitemap(data)
+  - var data = data || {}
+
+  .dev-sitemap&attributes(attributes)
+    each section in data.sections
+      .dev-sitemap__section.text-content
+        if (section.title)
+          .dev-sitemap__section-title
+            .dev-sitemap__wrap
+              .dev-sitemap__text= section.title
+            .dev-sitemap__underline._theme_purple
+
+        if (section.items)
+          ol
+            +_dev-sitemap-list({items: section.items})
+  .dev-sitemap__legend
+    .dev-sitemap__section-title
+      .dev-sitemap__wrap
+        .dev-sitemap__text Легенда
+    .dev-sitemap__tags-legend
+      .dev-sitemap__tag.dev-sitemap__tag_work
+      .dev-sitemap__tag.dev-sitemap__tag_almost
+      .dev-sitemap__tag.dev-sitemap__tag_completed
+      .dev-sitemap__tag.dev-sitemap__tag_notdesign
+      .dev-sitemap__tag.dev-sitemap__tag_requires-finalizing
+      .dev-sitemap__tag.dev-sitemap__tag_not-relevant
+      .dev-sitemap__tag.dev-sitemap__tag_test-required
+
+mixin _dev-sitemap-list(data)
+  each item in data.items
+    -
+      var url = ''
+      var attr = ''
+      var classItem = ''
+      var className = ''
+      if (item.url) url = `${item.url}`
+      if (item.className) className = `${item.className}`
+      if (data.className) classItem += data.className
+      effect = item.effect ? `${item.effect}`: false
+
+
+    li(class=classItem)
+
+      if (url)
+        .dev-sitemap__inner
+          a(
+            href=url
+            target="_blank"
+            class='aggre ' + className
+            data-effect= effect? effect:false
+          )&attributes(item.attributes)= item.title
+      else
+        .dev-sitemap__inner= item.title
+
+      if (item.tags && item.tags.length)
+        .dev-sitemap__tags
+          each status in item.tags
+            .dev-sitemap__tag(class=`dev-sitemap__tag_${status}`)
+
+      if (item.items)
+        .dev-sitemap__sublist
+          +_dev-sitemap-list({items: item.items, className: '_subitem'})

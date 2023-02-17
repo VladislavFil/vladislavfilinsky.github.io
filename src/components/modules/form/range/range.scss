@@ -1,0 +1,76 @@
+// SETTINGS
+$range-color-circle: $color-accent;
+$range-color-bar: $color-gray;
+$range-color-title: $color-gray-light;
+$range-item-color-border: $color-gray-light;
+$range-item-radius: $radius;
+$range-item-background: $color-white;
+$range-item-color-label: $color-black;
+$range-item-color-input: $color-black;
+
+//BLOCK
+.range-slider {
+  border-radius: $range-item-radius;
+  border: 1px solid $range-item-color-border;
+  padding: 0 20px;
+  height: 56px;
+  background: $range-item-background;
+  &__title {
+    font-size: 12px;
+    color: $range-color-title;
+    margin-top: 7px;
+  }
+  &__inputs {
+    display: flex;
+  }
+  &__input {
+    width: 90px;
+    font-size: 16px;
+    color: $range-item-color-input;
+    &-wrap {
+      width: 50%;
+      @include flex(false,flex-end);
+      height: 20px;
+      @include is-last() {
+        justify-content: flex-end;
+      }
+    }
+    &-label {
+      margin-right: 5px;
+      line-height: 1.2;
+      color: $range-item-color-label;
+    }
+// RANGE INSTANCE
+  }
+}
+.irs--round {
+  height: 15px;
+  .irs-handle {
+    @include size(16px);
+    top: 3px;
+    border: none;
+    background-color: $range-color-circle;
+    @include transition(transform);
+    &:hover {
+      cursor: grab;
+      background-color: $range-color-circle;
+      transform: scale(1.2);
+    }
+    &.state_hover {
+      cursor: grabbing;
+      background-color: $range-color-circle;
+      transform: scale(1.2);
+    }
+  }
+  .irs-bar {
+    top: 9px;
+    background-color: $range-color-bar;
+  }
+  .irs-line {
+    top: 9px;
+    height: 2px;
+  }
+  .irs-bar {
+    height: 2px;
+  }
+}

@@ -1,0 +1,27 @@
+include ../button/button
+
+mixin link(data)
+  -
+    var data = data || {}
+    var blockName = 'link'
+    var classMix = ''
+    classMix += (data.underline) ? ` text-underline` : ''
+
+  +_button(data, blockName, classMix)
+    +_button-inner(data, blockName)
+
+//-
+  // examples
+
+  +link({
+    className: 'mix-class',
+    size: 'xs',
+    theme: 'gray2green',
+    underline: 'none', // none | inverse
+    transform: 'uppercase',
+    url: '#',
+    iconBefore: {
+      name: 'plus',
+    },
+    text: 'Узнайте больше',
+  })

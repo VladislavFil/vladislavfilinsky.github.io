@@ -1,0 +1,32 @@
+include /components/modules/form/checkbox/checkbox
+include /components/modules/form/radio/radio
+include /components/modules/form/switch/switch
+include /components/modules/headline/headline
+include /components/modules/button/button
+include /components/modules/link/link
+include /components/modules/breadcrumbs/breadcrumbs
+include /components/modules/pagination/pagination
+include /components/modules/form/form
+
+
+//- Space
+mixin space()
+  | !{' '}
+
+//- Raw html
+mixin raw(string)
+  | !{string}
+
+//- Svg sprite
+mixin icon(name, mod)
+  if(mod)
+    svg(class="sprite-icon sprite-" + name + ' ' + mod)
+      use(xlink:href="assets/img/spritemap.svg#" + name)
+  else
+    svg(class="sprite-icon sprite-" + name)
+      use(xlink:href="assets/img/spritemap.svg#" + name)
+  //- Use +icon('name')
+
+//- icomoon
+mixin icomoon(name)
+  i(class= name)

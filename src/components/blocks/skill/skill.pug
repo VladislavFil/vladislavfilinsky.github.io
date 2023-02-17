@@ -1,0 +1,38 @@
+section#skill
+  .container
+    +headline({
+      size: 'md',
+      mode: 'section',
+      title: 'Профессиональные навыки'
+    })
+    .skill-item-row(data-anim="fadeIn" data-skill data-lazy-enter="skill:enter" data-only)
+      .skill-item(data-skill-percent="90")
+        .skill-item__title
+          .skill-item__title-name html5
+          .skill-item__title-percent
+        .skill-item__bar
+          .skill-item__bar-inner._bar-color-red
+      .skill-item(data-skill-percent="80")
+        .skill-item__title
+          .skill-item__title-name CSS/SASS
+          .skill-item__title-percent
+        .skill-item__bar
+          .skill-item__bar-inner._bar-color-blue
+      .skill-item(data-skill-percent="70")
+        .skill-item__title
+          .skill-item__title-name JavaScript
+          .skill-item__title-percent
+        .skill-item__bar
+          .skill-item__bar-inner._bar-color-purple
+      .skill-item(data-skill-percent="40")
+        .skill-item__title
+          .skill-item__title-name PHP
+          .skill-item__title-percent
+        .skill-item__bar
+          .skill-item__bar-inner._bar-color-orange
+      .skill-item(data-skill-percent="50")
+        .skill-item__title
+          .skill-item__title-name VUE3
+          .skill-item__title-percent
+        .skill-item__bar
+          .skill-item__bar-inner._bar-color-green

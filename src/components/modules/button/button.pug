@@ -1,0 +1,110 @@
+mixin _button(data, blockName, classMix)
+  -
+    var classRoot = blockName
+    classRoot += (data.size) ? ` ${blockName}-size-${data.size}` : ''
+    classRoot += (data.fluid) ? ` ${blockName}-fluid` : ''
+    classRoot += (data.flat) ? ` ${blockName}-flat` : ''
+    classRoot += (data.flatRounded) ? ` ${blockName}-flat-rounded` : ''
+    classRoot += (data.round) ? ` ${blockName}-round` : ''
+    classRoot += ` ${blockName}-theme-${data.theme || 'default'}`
+    classRoot += (classMix) ? ` ${classMix.trim()}` : ''
+    classRoot += (data.whiteSpace) ? ` ${blockName}-white-space-${data.whiteSpace}` : ''
+    classRoot += (data.uppercase) ? ` text-upper` : ''
+    classRoot += (data.className) ? ` ${data.className}` : ''
+
+  if (data.url)
+    a(
+      href= data.url
+      target= (data.isBlank === true) ? '_blank' : false
+      class= classRoot
+    )&attributes(data.attributes)
+      block
+  else
+    button(
+      class= classRoot
+      type= data.type || 'button'
+    )&attributes(data.attributes)
+      block
+
+mixin _button-inner(data, blockName)
+  if (data.iconBefore && data.iconBefore.name)
+    -
+      var styleIconBefore = ''
+      if (data.iconBefore.offsetTop)
+        styleIconBefore += ` margin-top: ${data.iconBefore.offsetTop};`
+      if (data.iconBefore.offsetRight)
+        styleIconBefore += ` margin-right: ${data.iconBefore.offsetRight};`
+      if (data.iconBefore.offsetBottom)
+        styleIconBefore += ` margin-bottom: ${data.iconBefore.offsetBottom};`
+      if (data.iconBefore.offsetLeft)
+        styleIconBefore += ` margin-left: ${data.iconBefore.offsetLeft};`
+
+    span(
+      class=`${blockName}__icon-before`
+      style=styleIconBefore.trim()
+    )
+      +icon(data.iconBefore.name)
+
+  if (data.text)
+    span(class=`${blockName}__text`)
+      != data.text
+
+  if (data.iconAfter && data.iconAfter.name)
+    -
+      var styleIconAfter = ''
+      if (data.iconAfter.offsetTop)
+        styleIconAfter += ` margin-top: ${data.iconAfter.offsetTop};`
+      if (data.iconAfter.offsetRight)
+        styleIconAfter += ` margin-right: ${data.iconAfter.offsetRight};`
+      if (data.iconAfter.offsetBottom)
+        styleIconAfter += ` margin-bottom: ${data.iconAfter.offsetBottom};`
+      if (data.iconAfter.offsetLeft)
+        styleIconAfter += ` margin-left: ${data.iconAfter.offsetLeft};`
+
+    span(
+      class=`${blockName}__icon-after`
+      style=styleIconAfter.trim()
+    )
+      +icon(data.iconAfter.name)
+
+mixin button(data, blockName)
+  -
+    var data = data || {}
+    var blockName = blockName || 'btn'
+
+  +_button(data, blockName)
+    +_button-inner(data, blockName)
+
+
+//-
+  // examples
+
+  // generate button-link
+  +button({
+    className: 'mix-class',
+    size: 'xs',
+    fluid: true,
+    flat: true,
+    theme: 'green',
+    transform: 'uppercase',
+    url: '#',
+    iconBefore: {
+      name: 'plus',
+      // width: 16,
+      // height: 16,
+    },
+    text: 'Узнайте больше',
+  })
+
+  // generate button
+  +button({
+    className: 'mix-class',
+    size: 'xs',
+    theme: 'red',
+    iconAfter: {
+      name: 'plus',
+      // width: 16,
+      // height: 16,
+    },
+    text: 'Узнайте больше',
+  })

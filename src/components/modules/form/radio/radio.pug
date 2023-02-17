@@ -1,0 +1,6 @@
+mixin radio-simple(text, name=false, checked=true)
+  label.form-radio&attributes(attributes)
+    input(type="radio" name= name checked= checked).form-radio__input.visually-hidden
+    i.form-radio__icon
+    span.form-radio__text= text
+

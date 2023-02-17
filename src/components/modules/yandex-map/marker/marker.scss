@@ -1,0 +1,118 @@
+// SETTINGS
+$marker-object-radius: 50%;
+$marker-object-background: $color-accent-2;
+$marker-object-color: $color-white;
+$marker-object-name-background: #FCFCFC;
+$marker-object-name-radius: 10px;
+$marker-object-name-color-top: $color-black;
+$marker-object-name-color-name: $color-black;
+$marker-object-name-color-top-open: $color-white;
+$marker-object-name-color-name-open: $color-white;
+$marker-object-name-background-open: $color-accent;
+$marker-object-name-background-hover: $color-accent;
+$marker-infra-radius: 50%;
+$marker-infra-background: $color-accent;
+$marker-cluster-background: $color-accent;
+
+// BLOCK
+.yandex-map {
+  &__object-marker,
+  &__object-min-marker {
+    @include size(60px);
+    flex-grow: 1;
+    flex-shrink: 0;
+    @include transition(transform);
+    @include flex(center, center);
+    border-radius: $marker-object-radius;
+    background: $marker-object-background;
+    position: relative;
+    color: $marker-object-color;
+    svg {
+      @include size(22px);
+      @include max-size(22px);
+    }
+    &.is-open {
+      .yandex-map__object-marker-name {
+        background: $marker-object-name-background-open;
+        color: $marker-object-name-color-name-open;
+        &-top {
+          color: $marker-object-name-color-top-open;
+        }
+      }
+    }
+    &:hover {
+      background: $marker-object-name-background-hover;
+    }
+    &-name {
+      position: absolute;
+      left: 110%;
+      top: 50%;
+      transform: translateY(-50%);
+      background: $marker-object-name-background;
+      border-radius: $marker-object-name-radius;
+      padding: 9px 25px;
+      font-size: 16px;
+      color: $marker-object-name-color-name;
+      white-space: nowrap;
+      @include transition(background, color,border-color);
+      &-top {
+        font-size: 12px;
+        margin-bottom: 4px;
+        color: $marker-object-name-color-top;
+        @include transition(color);
+      }
+    }
+  }
+  &__infrastructure-marker {
+    @include transition(background-color, transform);
+    @include size(35px);
+    @include flex(center, center);
+    background-color: $marker-infra-background;
+    border-radius: $marker-infra-radius;
+    cursor: pointer;
+    img {
+      max-width: 70%;
+      max-height: 70%;
+    }
+    &.is-open {
+      transform: scale(1.07);
+      .yandex-map__object-marker-name {
+        background: $color-accent;
+      }
+    }
+  }
+  &__text-marker {
+    font-size: 15px;
+    line-height: 1.3;
+    color: #4396E2;
+    min-width: 200px;
+    font-weight: 500;
+    white-space: nowrap;
+    @include sm {
+      font-size: 13px;
+    }
+// CLUSTER
+  }
+}
+.yandex-map__cluster {
+  @include font-size(h6);
+  @include scale(width, 32px, 38px, 38px);
+  @include scale(height, 32px, 38px, 38px);
+  border-radius: 50%;
+  font-weight: 500;
+  background-color: $marker-cluster-background;
+  color: $color-white;
+  @include flex(center, center);
+  cursor: default;
+  position: relative;
+  transform: translate(-50%, -50%);
+  // +after()
+  //   position: absolute
+  //   width: 140%
+  //   height: 140%
+  //   top: 50%
+  //   left: 50%
+  //   transform: translate(-50%, -50%)
+  //   border: 1px solid $marker-cluster-background
+  //   border-radius: 50%
+}

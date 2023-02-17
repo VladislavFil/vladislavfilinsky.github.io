@@ -1,0 +1,374 @@
+// стандартный transition
+@mixin transition($property...) {
+  transition-property: $property;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+}
+
+@mixin r($width) {
+  @media only screen and (max-width: $width + px) {
+    @content;
+  }
+}
+@mixin rmin($width) {
+  @media only screen and (min-width: $width + px) {
+    @content;
+  }
+}
+@mixin rh($height) {
+  @media only screen and (max-height: $height + px) {
+    @content;
+  }
+}
+@mixin rhmin($height) {
+  @media only screen and (min-height: $height + px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 992px) and (max-width: 1199px) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media (min-width: 768px) and (max-width: 991px) {
+    @content;
+  }
+}
+
+@mixin hover {
+  .no-touch {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+@mixin coverdiv {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+// Правильное скрытие элементов со страницы
+@mixin visually-hidden() {
+  position: absolute;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  width: 1px;
+  height: 1px;
+  white-space: nowrap;
+  -webkit-clip-path: inset(100%);
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+  z-index: -1;
+}
+
+// Убирает базовые стили со списков
+@mixin reset-list() {
+  list-style-type: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+// Убирает браузерные стили у тега button
+/* stylelint-disable property-no-vendor-prefix */
+@mixin reset-button() {
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+  text-align: inherit;
+  outline: none;
+  cursor: pointer;
+  background-color: transparent;
+
+  /* inherit font & color from ancestor */
+  color: inherit;
+  font: inherit;
+
+  /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+  line-height: normal;
+
+  /* Corrects font smoothing for webkit */
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+
+  /* Corrects inability to style clickable `input` types in iOS */
+  -webkit-appearance: none;
+
+  /* Remove excess padding and border in Firefox 4+ */
+  &::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+  }
+}
+
+// vertical-align at center
+@mixin vcenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+@mixin center($axis) {
+  @if $axis == both {
+    @include vcenter;
+  }  @else if $axis == h {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }  @else if $axis == v {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+//gradient
+@mixin gradient($color1, $color2, $deg: left) {
+  background: linear-gradient(to $deg, $color1, $color2);
+}
+
+// triangle
+@mixin triangle($side: top, $color: $white, $size: 16px) {
+  $border: $size solid transparent;
+  width: 0;
+  height: 0;
+
+  @if not index(top right bottom left, $side) {
+    @warn "Неправльное значение. Попробуйте - top, right, bottom или left.";
+  }
+  @else {
+    @if $side == "top" or $side == "bottom" {
+      border-left: $border;
+      border-right: $border;
+    }
+    @if $side == "left" or $side == "right" {
+      border-top: $border;
+      border-bottom: $border;
+      border-#{$side}: ($size * 1.2) solid $color;
+    }
+  }
+}
+
+@mixin better-blur($radius) {
+  filter: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='a' x='0' y='0' width='1' height='1' color-interpolation-filters='sRGB'%3E%3CfeGaussianBlur stdDeviation='#{$radius}' result='b'/%3E%3CfeMorphology operator='dilate' radius='#{$radius}'/%3E %3CfeMerge%3E%3CfeMergeNode/%3E%3CfeMergeNode in='b'/%3E%3C/feMerge%3E%3C/filter%3E %3C/svg%3E#a");
+}
+
+@mixin not-disabled {
+  &:not([disabled]):not([data-is-disabled]) {
+    @content;
+  }
+}
+
+@mixin _svg-child($_is_custom-size: false) {
+  display: block;
+  fill: currentColor;
+  @if $_is_custom-size == true {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+  }
+}
+
+@mixin svg-parent($_is_custom-size: false) {
+  > svg {
+    @include _svg-child($_is_custom-size);
+  }
+}
+
+@mixin svg-child($_is_custom-size: false) {
+  @include _svg-child($_is_custom-size);
+}
+
+@mixin _before($content: '') {
+  content: $content;
+  display: block;
+}
+
+@mixin before($content: '') {
+  &::before {
+    @include _before($content);
+    @content;
+  }
+}
+
+@mixin after($content: '') {
+  &::after {
+    @include _before($content);
+    @content;
+  }
+}
+
+@mixin is-active() {
+  &[data-is-active] {
+    @content;
+  }
+}
+
+@mixin is-disabled() {
+  &[disabled],
+  &[data-is-disabled] {
+    @content;
+  }
+}
+
+
+@mixin is-first() {
+  &:first-child {
+    @content;
+  }
+}
+
+@mixin is-last() {
+  &:last-child {
+    @content;
+  }
+}
+
+@mixin is-child($index) {
+  &:nth-child(#{$index}) {
+    @content;
+  }
+}
+
+@mixin not-first() {
+  &:not(first-child) {
+    @content;
+  }
+}
+
+
+@mixin not-last() {
+  &:not(last-child) {
+    @content;
+  }
+}
+
+@mixin not-child($index) {
+  &:not(:nth-child(#{$index})) {
+    @content;
+  }
+}
+
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+@mixin max-size($width, $height: $width) {
+  max-width: $width;
+  max-height: $height;
+}
+
+
+@mixin _flex($_justify: false, $_align: false) {
+  @if ($_justify) {
+    justify-content: $_justify;
+  }
+  @if ($_align) {
+    align-items: $_align;
+  }
+}
+
+@mixin flex($_justify: false, $_align: false, $_column: false, $_wrap: false) {
+  display: flex;
+  @if ($_column) {
+    flex-direction: column;
+  }
+  @if ($_wrap) {
+    flex-wrap: wrap;
+  }
+  @include _flex($_justify, $_align);
+}
+
+@mixin inline-flex($_justify: false, $_align: false) {
+  display: inline-flex;
+  @include _flex($_justify, $_align);
+}
+
+@mixin state-color($_color, $_color-hover: false, $_color-active: false) {
+  @if ($_color-hover == false) {
+    $_color-hover: $_color;
+  }
+  @if ($_color-active == false) {
+    $_color-active: $_color-hover;
+    color: $_color;
+  }
+  &:hover {
+    color: $_color-hover;
+  }
+  &:active {
+    color: $_color-active;
+  }
+}
+
+@function strip-units($number) {
+  @return $number / ($number * 0 + 1);
+}
+
+// Стилизует скроллбар в вебките
+@mixin custom-scrollbar(
+  $size: 0,
+  $color: transparent,
+  $bg: transparent,
+  $hover: transparent,
+  $radius: 0,
+  $border: null
+) {
+  // Firefox
+  @if strip-units($size) < 8 {
+    scrollbar-width: thin;
+  } @else {
+    scrollbar-width: auto;
+  }
+  scrollbar-color: $color $bg;
+
+  &:hover {
+    scrollbar-color: $color $hover;
+  }
+
+  // Other
+  &::-webkit-scrollbar {
+    width: $size;
+    height: $size;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: $bg;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $color;
+    border-radius: $radius;
+
+    @if $border {
+      border: $border;
+    }
+
+    &:hover {
+      background: $hover;
+    }
+  }
+}
+
+// Preloader
+@mixin preloader($color: #61697B, $type: 'circle') {
+  $color: str-replace(#{$color}, '#', '');
+
+  @if ($type == 'circle') {
+    background: no-repeat center / 100% url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='25 25 50 50'%3E%3Ccircle cx='50' cy='50' r='20' fill='none' stroke-width='4' stroke='%23#{$color}' stroke-linecap='round' stroke-dashoffset='0' stroke-dasharray='100, 200'%3E%3CanimateTransform attributeName='transform' attributeType='XML' type='rotate' from='0 50 50' to='360 50 50' dur='2.5s' repeatCount='indefinite'/%3E%3Canimate attributeName='stroke-dashoffset' values='0;-30;-124' dur='1.25s' repeatCount='indefinite'/%3E%3Canimate attributeName='stroke-dasharray' values='0,200;110,200;110,200' dur='1.25s' repeatCount='indefinite'/%3E%3C/circle%3E%3C/svg%3E");
+  }
+  @if ($type == 'dots') {
+    background: no-repeat center / 100% url("data:image/svg+xml,%3Csvg id='L4' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' enable-background='new 0 0 0 0' xml:space='preserve'%3E%3Ccircle fill='%23#{$color}' stroke='none' cx='6' cy='50' r='6'%3E%3Canimate attributeName='opacity' dur='1s' values='0;1;0' repeatCount='indefinite' begin='0.1'%3E%3C/animate%3E%3C/circle%3E%3Ccircle fill='%23#{$color}' stroke='none' cx='26' cy='50' r='6'%3E%3Canimate attributeName='opacity' dur='1s' values='0;1;0' repeatCount='indefinite' begin='0.2'%3E%3C/animate%3E%3C/circle%3E%3Ccircle fill='%23#{$color}' stroke='none' cx='46' cy='50' r='6'%3E%3Canimate attributeName='opacity' dur='1s' values='0;1;0' repeatCount='indefinite' begin='0.3'%3E%3C/animate%3E%3C/circle%3E%3C/svg%3E");
+  }
+}

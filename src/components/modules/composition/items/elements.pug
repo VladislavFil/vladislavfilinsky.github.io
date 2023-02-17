@@ -1,0 +1,55 @@
+.composition-right__item(data-tab="elems")
+  .composition-right__top Кнопки
+  .composition-right__bottom
+    .composition-right__bottom-inner
+      .composition-block-title Input
+      .composition-block
+        +inputName({theme: "white"})
+      .composition-block-title Checkbox
+      .composition-block
+        .form-group
+          +checkbox-simple('Чекбокс 1')
+        .form-group
+          +checkbox-simple('Чекбокс 2', 'check', false)
+        .form-group
+          +checkbox-simple('Чекбокс 3')
+
+      .composition-block-title Select
+      .composition-block
+        select(name="select" class="form__select")
+          option(value="") Select...
+          option(value="1") Options 1
+          option(value="2") Options 2
+          option(value="3") Options 3
+          option(value="4") Options 4
+          option(value="5") Options 5
+
+      .composition-block-title Select(plugin)
+      .composition-block
+        select(name="select-2" class="j-select" data-link="false")
+          option(value="") Select...
+          option(value="1") Options 1
+          option(value="2") Options 2
+          option(value="3") Options 3
+          option(value="4") Options 4
+          option(value="5") Options 5
+
+      .composition-block-title Textarea
+      .composition-block
+        +inputTextarea({theme: "white"})
+
+      .composition-block-title Radio button
+      .composition-block
+        +radio-simple('Male', 'gender')
+        +radio-simple('Famale', 'gender', true)
+
+      .composition-block-title Switch
+      .composition-block
+        .form-group
+          +switch-simple('Переключатель 1', 'switch',true)
+        .form-group
+          +switch-simple('Переключатель 2', 'switch-two')
+
+      .composition-block-title Preloader
+      .composition-block
+        .is-loading

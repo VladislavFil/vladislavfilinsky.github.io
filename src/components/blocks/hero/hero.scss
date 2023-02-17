@@ -1,0 +1,30 @@
+.hero {
+  &__inner {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  overflow: hidden;
+  &__background {
+    @include coverdiv();
+    height: 100%;
+  }
+  &__content {
+    position: relative;
+    color: $color-gray-light;
+    text-align: center;
+  }
+  &__title {
+    @include font-size(h2);
+    font-weight: bold;
+    font-family: $font-title;
+    &-top {
+      font-size: 14px;
+      opacity: 0.7;
+    }
+  }
+}
+

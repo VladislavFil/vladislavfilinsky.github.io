@@ -1,0 +1,16 @@
+mixin inputFile(data)
+  -
+    let classRoot = 'form__input form__photo-button inner-button'
+    classRoot += (data.className) ? ` ${data.className}` : ''
+    classRoot += (data.theme) ? ` form__input--${data.theme}` : ''
+  .form__group(data-photo)
+    //- .form__label-wrap
+    //-   label.form__label(for="photo" data-photo-label) Фото
+    .form__input-wrap
+      input#photo.form__photo-input.visually-hidden(type='file', name='photo', accept='.jpg, .jpeg, .png', data-photo-input)
+      label(class= classRoot for='photo', data-photo-button)
+        span.inner-button__text(data-photo-text) Выбрать фото
+        span.inner-button__cross-svg-wrap
+          svg(width='16', height='16', viewbox='0 0 16 16', fill='none', xmlns='http://www.w3.org/2000/svg')
+            path(fill='currentColor', d='M.002 14.665L14.667-.001 16 1.332 1.335 15.998z')
+            path(fill='currentColor', d='M15.998 14.665L1.333 0 0 1.333l14.665 14.665z')

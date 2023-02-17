@@ -1,0 +1,16 @@
+.composition-right__item(data-tab="tabs")
+  .composition-right__top Табы
+  .composition-right__bottom
+    .composition-right__bottom-inner
+      .j-tab.tab.tab-anim--top.tab--simple(data-tab-hash="true")
+        .tab__buttons
+          each i, key in [1,2]
+            .tab__btn(data-tab= key + 1)
+              button.tab__btn-btn(type="button")
+                span.tab__btn-text Таб !{key + 1}
+        .tab__content
+          each i, key in [1,2]
+            .tab__content-item(data-tab= key + 1)
+              .l-flex.l-flex-1
+                .col
+                  .composition-box

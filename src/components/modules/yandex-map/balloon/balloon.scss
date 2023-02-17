@@ -1,0 +1,343 @@
+// SETTINGS
+$object-background: $color-white;
+$object-background-hover: $color-white;
+$baloon-panel-radius: $radius-lg;
+$object-color-title: $color-accent;
+$object-radius-panel-image: 10px;
+$panel-link-background: $color-accent;
+
+// BLOCK
+
+// Object
+.yandex-map-balloon--object {
+  @include rmin(1024) {
+    @include transition(opacity, transform);
+    position: absolute;
+    top: 100%;
+    left: -30px;
+    display: block;
+    width: 100%;
+    z-index: -1;
+    text-decoration: none;
+    background: $object-background;
+    width: 420px;
+    border-radius: $baloon-panel-radius;
+    margin-top: 10px;
+    @include transition(background);
+    &:hover {
+      background: $object-background-hover;
+      .yandex-map-balloon__title {
+        color: $object-color-title;
+      }
+    }
+    .yandex-map-balloon {
+      &__popup {
+        padding: 20px;
+      }
+      &__content {
+        color: $color-black;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+      &__image {
+        flex-grow: 0;
+        width: 100px !important;
+        height: 100px !important;
+        border-radius: $radius !important;
+        background: $color-gray-light !important;
+        object-fit: cover;
+        object-position: center bottom;
+        margin-right: 15px;
+      }
+      &__title {
+        width: 60%;
+        @include font-size(h5);
+        @include transition(color);
+        font-weight: bold;
+        flex-grow: 1;
+      }
+      &__text {
+        width: 100%;
+        margin-top: 25px;
+        ul {
+          li {
+            @include font-size(text);
+            @include flex(false, center);
+            margin-bottom: 7px;
+          }
+        }
+      }
+      &__top {
+        @include flex(false, center);
+      }
+      &__bottom {
+        width: 100%;
+        @include flex(space-between,center);
+        margin-top: 30px;
+        .room-price {
+          font-weight: bold;
+          @include font-size(h3);
+        }
+      }
+    }
+  }
+  .yandex-map-balloon {
+    &__tags {
+      width: 100%;
+      margin-bottom: 20px;
+      &-item {
+        display: inline-block;
+        font-size: 10px;
+        text-transform: uppercase;
+        padding: 4px 10px;
+        background: var(--color-dark);
+        margin-right: 5px;
+        border-radius: 30px;
+        color: $color-white;
+      }
+    }
+    &__panel {
+      &-image {
+        width: 100%;
+        height: 180px;
+        margin-bottom: 10px;
+        object-fit: cover;
+        border-radius: $object-radius-panel-image;
+      }
+      .yandex-map-balloon__tags {
+        margin-bottom: 10px;
+      }
+// Infrastructure
+    }
+  }
+}
+.yandex-map-balloon--infrastructure {
+  @include rmin(1024) {
+    text-decoration: none;
+    background-color: $color-white;
+    display: block;
+    box-shadow: $shadow-card;
+    border-radius: $baloon-panel-radius;
+    z-index: 3;
+  }
+  @include rmin(1024) {
+    @include transition(opacity, transform);
+    position: absolute;
+    top: calc(100% - 28px);
+    left: 50%;
+    display: block;
+    width: 100%;
+    font-size: 12px;
+    transform: translate(-50%, -100%);
+    width: 190px;
+    @include after() {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -8px;
+      @include size(20px);
+      margin: auto;
+      border-radius: 3px;
+      box-shadow: $shadow-def;
+      background-color: $color-white;
+      transform: rotate(45deg);
+      z-index: -1;
+    }
+  }
+  .yandex-map-balloon__bottom {
+    display: none;
+  }
+  .yandex-map-balloon {
+    &__modal {
+      display: block;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: $shadow-def;
+      background-color: $color-white;
+      padding: 20px;
+      @include sm {
+        display: none;
+      }
+    }
+    &__image {
+      display: none;
+    }
+    &__info {
+      background-color: $color-white;
+    }
+    &__title {
+      @include font-size(text);
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+    &__panel {
+      &-image {
+        display: none;
+      }
+// Ballon
+    }
+  }
+}
+.yandex-map-balloon {
+  opacity: 0;
+  animation: show .2s forwards ease-in-out;
+  @include lg {
+    position: absolute;
+    transform: translateY(0);
+    top: 100%;
+    width: 100%;
+    left: 0;
+    z-index: 3;
+    @include transition(transform, opacity);
+  }
+  &.is-hide {
+    animation: hide .2s forwards ease-in-out;
+  }
+  &__popup {
+    @include lg {
+      display: none;
+    }
+  }
+  &__panel {
+    display: none;
+    @include lg {
+      display: block;
+    }
+  }
+  &__close {
+    display: none;
+  }
+// Panel
+}
+.yandex-map-balloon__panel {
+  padding: 0 10px;
+  margin-bottom: 10px;
+  &-content {
+    @include flex(false, false, column);
+    position: relative;
+    overflow: hidden;
+    box-shadow: $shadow-card;
+    border-radius: $baloon-panel-radius;
+    background: $color-white;
+    padding: 15px;
+  }
+  &-info {
+    padding: 0 10px;
+  }
+  &-visual {
+    margin-right: 15px;
+    @include lg {
+      margin-right: 0;
+    }
+  }
+  &-title {
+    font-size: 18px;
+    width: 100%;
+    font-weight: bold;
+    margin-bottom: 10px;
+    @include lg {
+      margin-bottom: 5px;
+    }
+  }
+  &-text {
+    font-size: 12px;
+    line-height: 20px;
+    letter-spacing: -0.17px;
+    opacity: 0.75;
+    ul {
+      margin-top: 7px;
+      li {
+        span {
+          display: inline-block;
+          @include is-first() {
+            margin-right: 10px;
+          }
+          @include is-last() {
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+  &-link {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 7px 25px;
+    background: $panel-link-background;
+    border-radius: 7px;
+    font-size: 13px;
+    color: $color-white;
+  }
+  &-icon {
+    position: absolute;
+    width: 72px;
+    height: 70px;
+    left: 50%;
+    top: -35px;
+    margin-left: -36px;
+    border-radius: 100%;
+    border: 2px solid $color-white;
+  }
+}
+.map-open {
+  .yandex-map-balloon {
+    position: fixed;
+    z-index: 9999999;
+  }
+// Keyframes
+}
+@keyframes hideTransform {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+}
+
+@keyframes showTransform {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes hide {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes showScale {
+  from {
+    transform: scale(0.33);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+@keyframes hideScale {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0);
+  }
+};

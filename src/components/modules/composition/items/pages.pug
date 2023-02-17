@@ -1,0 +1,147 @@
+.composition-right__item(data-tab="pages")
+  .composition-right__top Страницы
+  .composition-right__bottom
+    .composition-right__bottom-inner
+      .text-right
+        //- tags:
+          none - не готово
+          work - в работе
+          almost - готов десктоп
+          completed - готово
+          front - на фронте
+          back - на бэке
+          dev - на деве
+          prod - на бою
+          requires-finalizing - необходимо доработать
+          notdesign - нет дизайна
+          not-relevant - не актуально
+          tags: ['none', 'completed', 'completed', 'front', 'back', 'dev', 'prod', 'test-required', 'requires-finalizing', 'bugs', 'not-relevant'],
+        +dev-sitemap({
+          sections: [
+              {
+                title: 'Основные страницы',
+                items: [
+                  {
+                    title: 'Главная',
+                    url: 'index.html',
+                    tags: ['work']
+                  },
+                  {
+                    title: 'Главная',
+                    url: 'index.html',
+                    tags: ['work']
+                  },
+                  {
+                    title: 'Главная',
+                    url: 'index.html',
+                    tags: ['work']
+                  },
+                  {
+                    title: 'Главная',
+                    url: 'index.html',
+                    tags: ['work']
+                  },
+                  {
+                    title: 'Главная',
+                    url: 'index.html',
+                    tags: ['work']
+                  },
+                  {
+                    title: 'Главная',
+                    url: 'index.html',
+                    tags: ['work']
+                  },
+                  {
+                    title: 'Главная',
+                    url: 'index.html',
+                    tags: ['work']
+                  },
+                  {
+                    title: 'Главная',
+                    url: 'index.html',
+                    tags: ['work']
+                  },
+                  {
+                    title: 'Главная',
+                    url: 'index.html',
+                    tags: ['work']
+                  },
+                  {
+                    title: 'Главная',
+                    url: 'index.html',
+                    tags: ['work']
+                  },
+                  {
+                    title: 'Главная',
+                    url: 'index.html',
+                    tags: ['work']
+                  },
+                  {
+                    title: 'Главная',
+                    url: 'index.html',
+                    tags: ['work']
+                  },
+                  {
+                    title: 'Главная',
+                    url: 'index.html',
+                    tags: ['work']
+                  },
+                  {
+                    title: 'Главная',
+                    url: 'index.html',
+                    tags: ['work']
+                  },
+                  {
+                    title: 'Главная',
+                    url: 'index.html',
+                    tags: ['work']
+                  },
+                  {
+                    title: 'Страницы и Компоненты',
+                    url: 'main.html',
+                    tags: ['work']
+                  }
+                ],
+              },
+              {
+                title: 'Модальные окна',
+                items: [
+                  {
+                    title: 'Обратный звонок',
+                    url: '#callback-inline',
+                    className: 'j-popup',
+                    tags: ['work']
+                  },
+                  {
+                    title: 'Успешная отправка',
+                    url: '#success',
+                    className: 'j-popup',
+                    tags: ['completed']
+                  },
+                  {
+                    title: 'Ошибка отправки',
+                    url: '#error',
+                    className: 'j-popup',
+                    tags: ['completed']
+                  },
+                ],
+              },
+              {
+                title: 'Модальные окна (side)',
+                items: [
+                  {
+                    title: 'Обратный звонок',
+                    url: '#callback',
+                    className: 'j-popup j-popup-side',
+                    tags: ['completed']
+                  },
+                  {
+                    title: 'Cтатья',
+                    url: '#aside',
+                    className: 'j-popup j-popup-side',
+                    tags: ['completed']
+                  },
+                ],
+              }
+            ],
+          })

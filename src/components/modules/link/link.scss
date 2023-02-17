@@ -1,0 +1,59 @@
+.link {
+  @include inline-flex(false,center);
+  line-height: 1;
+  &:hover {
+    .link {
+      &__icon-after {
+        margin-left: 20px;
+      }
+      &__text {
+        border-color: transparent;
+      }
+    }
+  }
+  &__text {
+    border-bottom: 1px solid transparent;
+    text-decoration: none;
+    @include transition(color, border-color, opacity);
+  }
+  &__icon {
+    &-before,
+    &-after {
+      @include svg-parent(true);
+      @include size(.9em);
+      display: inline-block;
+      position: relative;
+      flex-shrink: 0;
+      color: inherit;
+      top: 0;
+      color: currentColor;
+      @include transition(color, opacity, margin);
+    }
+    &-before {
+      margin-right: .5em;
+    }
+    &-after {
+      margin-left: .5em;
+    }
+  }
+  &-size {
+    &-lg {
+      @include scale(font-size, 20px, 18px, 16px);
+    }
+    &-md {
+      font-size: 17px;
+    }
+    &-sm {
+      font-size: 14px;
+    }
+    &-xs {
+      font-size: 12px;
+    }
+  }
+  &-theme {
+    &-accent {
+      border-color: $color-accent;
+      @include state-color($color-accent, lighten($color-accent, 20%));
+    }
+  }
+}

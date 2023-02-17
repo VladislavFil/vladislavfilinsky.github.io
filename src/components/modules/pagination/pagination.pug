@@ -1,0 +1,56 @@
+//- pag
+mixin pag(amount, active, ellipsis, last, arrows)
+    //- amount - amount of displayed numbers +1 prior ellipsis
+    //- active - active number
+    //- ellipsis - number to be replaced by ellipsis
+    //- last - number after ellipsis
+    //- .icon-pag-prev and .icon-pag-next
+    .pag-wrap.pag--center
+      .pag
+          //- prev arrow
+          if (arrows === arrows)
+              a(href="#" title="Предыдущая страница").pag__prev.icon-pag-prev «
+          else
+
+          ul.pag__list
+              //- before ellipsis
+              - for (var index = 1; index <= amount; index++)
+                  if (index === active)
+                      li.pag__item.is-active
+                          a(href="#" title="Текущая страница " + index).pag__number= index
+                  else if (index === ellipsis)
+                      li.pag__item
+                          a(href="#" title="Показать больше").pag__number.is-collapsed ...
+                  else
+                      li.pag__item
+                          a(href="#" title="Страница " + index).pag__number= index
+              //- after ellipsis
+              - for (var index = amount + 1; index <= last; index++)
+                  li.pag__item
+                      a(href="#" title="Страница " + index).pag__number= index
+
+          //- next arrow
+          if (arrows === arrows)
+              a(href="#" title="Следующая страница").pag__next.icon-pag-next »
+          else
+
+//- Use example
+//- first part is 5 numbers
+//- 3 is active
+//- 4 is ellipsis
+//- 9 is the last number, starting from last number of first part (5)
+//- arrows - show prev/next arrows
+//- +pag(5, 3, 4, 7, arrows)
+
+//- PAGINATION FOR OCTOBER CMS DEFAULT
+
+mixin pagination()
+  ul.pagination.gs.gs-fadeIn
+    li
+      a(href='#', rel='prev') &laquo;
+    li
+      a(href='#') 1
+    li.active
+      span 2
+    li.disabled
+      span &raquo;

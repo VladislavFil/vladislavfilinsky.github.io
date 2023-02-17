@@ -1,0 +1,50 @@
+mixin nav(items)
+  each item, key in items
+    if (key + 1 === menuIndex)
+      li.nav__item.active
+        span.nav__link= item.title
+        if (item.menu)
+          i.i-dropdown
+          ul.nav__dropdown
+            each li in item.menu
+              li
+                a(href= li.url)= li.title
+    else if (item.url === '')
+      li.nav__item
+        span= item.title
+        if (item.menu)
+          i.i-dropdown
+          ul.nav__dropdown
+            each li in item.menu
+              li
+                a(href= li.url)= li.title
+    else
+      li(class="nav__item")
+        if (item.menu)
+          .acc.acc-mobile.acc-lg.j-acc.j-acc-mobile(data-close="false")
+            .acc__head
+              a.nav__link(href= item.url)= item.title
+                i.i-dropdown
+            .acc__content-wrap
+              .acc__content
+                ul.nav__dropdown
+                  each li in item.menu
+                    li
+                      a(href= li.url)= li.title
+        else
+          a.nav__link(href= item.url data-scroll-to)= item.title
+
++nav([
+  {
+    title: 'Обо мне',
+    url: '#about'
+  },
+  {
+    title: 'Навыки',
+    url: '#skill'
+  },
+  {
+    title: 'Портфолио',
+    url: '#portfolio',
+  }
+  ])

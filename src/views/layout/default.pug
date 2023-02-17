@@ -1,0 +1,22 @@
+include /views/mixin/main
+
+block variables
+
+doctype html
+html(lang='ru-RU')
+  head
+    include /views/layout/site/head
+  body
+    include /components/modules/preloader/preloader
+    .wrapper
+      include /components/modules/menu/menu
+      include /components/modules/header/header
+      if (breadcrumbs)
+        +breadcrumbs(breadcrumbs,breadcrumbslast)
+      main.content
+        block content
+      include /components/modules/footer/footer
+      //- include /components/modules/popup/popup
+      //- include /components/modules/cookie/cookie
+
+    block script

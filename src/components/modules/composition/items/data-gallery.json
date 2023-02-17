@@ -1,0 +1,12 @@
+{
+  "images": [
+    {
+      "title": "Image 1",
+      "src": "assets/img/image-common-1.jpg"
+    },
+    {
+      "title": "Image 2",
+      "src": "assets/img/image-common-1.jpg"
+    }
+  ]
+}

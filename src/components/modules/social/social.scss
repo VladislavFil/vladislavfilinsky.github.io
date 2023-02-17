@@ -1,0 +1,44 @@
+.social {
+  margin-top: 30px;
+  position: relative;
+  &__title {
+    margin-bottom: 20px;
+    font-size: 14px;
+  }
+  &__list {
+    @include flex('',center);
+    @include reset-list();
+  }
+  &__item {
+    margin-right: 10px;
+    @include is-last() {
+      margin: 0
+    }
+  }
+  &__link {
+    @include inline-flex(center, center);
+    background: $color-white;
+    border-radius: 50%;
+    @include transition(opacity);
+
+    @include hover {
+      opacity: .7;
+    }
+  }
+}
+
+.social-simple {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  .social__link {
+    background: none;
+    @include size(24px);
+    @include xs {
+      @include size(40px)
+    }
+    &-icon {
+      @include size(100%)
+    }
+  }
+}

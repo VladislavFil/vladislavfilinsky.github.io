@@ -1,0 +1,54 @@
+mixin checkbox-map(name, text, icon)
+  label.yandex-map-legend__label.checkbox.checkbox--simple
+    input(type="checkbox" name= name data-type= name id= name).yandex-map-legend__checkbox.j-map-filter-item
+    .yandex-map-legend__content
+      span.yandex-map-legend__icon
+        img(src=require("@image/map/" + icon), alt= name)
+      span.yandex-map-legend__text= text
+    //- span.checkbox__icon
+    //-   svg(viewBox="0 0 16 11" fill="none" xmlns="http://www.w3.org/2000/svg")
+    //-     path(d="M1.37205 3.83446C1.18757 3.62898 0.871444 3.61196 0.665966 3.79644C0.460488 3.98092 0.443468 4.29705 0.62795 4.50252L1.37205 3.83446ZM5.63914 10.084C5.82362 10.2895 6.13974 10.3065 6.34522 10.1221C6.5507 9.93757 6.56772 9.62144 6.38324 9.41597L5.63914 10.084ZM15.352 1.35515C15.5481 1.16077 15.5495 0.844188 15.3551 0.648046C15.1608 0.451905 14.8442 0.450475 14.648 0.644854L15.352 1.35515ZM5.81868 9.39485C5.62254 9.58923 5.62111 9.90581 5.81549 10.102C6.00986 10.2981 6.32644 10.2995 6.52258 10.1051L5.81868 9.39485ZM0.62795 4.50252L5.63914 10.084L6.38324 9.41597L1.37205 3.83446L0.62795 4.50252ZM14.648 0.644854L5.81868 9.39485L6.52258 10.1051L15.352 1.35515L14.648 0.644854Z")
+
+section.j-navbar-section(data-scroll-id="infrastructure")
+  .container
+    +headline({
+      title: 'Рядом находится',
+      mode: 'section',
+      size: 'md'
+    })
+    .yandex-map--infrastructure
+      .yandex-map-legend.j-yandex-map-infrastructure
+        .yandex-map-legend__list-wrap
+          ul.yandex-map-legend__list.j-map-filter
+            li.yandex-map-legend__item
+              +checkbox-map("sсhool", 'Школы/вузы', 'ic-map-sсhool.svg')
+            li.yandex-map-legend__item
+              +checkbox-map("drugstore", 'Медицина', 'ic-map-drugstore.svg')
+            li.yandex-map-legend__item
+              +checkbox-map("shops", 'Магазины', 'ic-map-shops.svg')
+            li.yandex-map-legend__item
+              +checkbox-map("kindergarten", 'Детский сад', 'ic-map-kindergarten.svg')
+            li.yandex-map-legend__item
+              +checkbox-map("bus", 'Транспорт', 'ic-map-bus.svg')
+            li.yandex-map-legend__item
+              +checkbox-map("cafe", 'Кофе/рестораны', 'ic-map-cafe.svg')
+            li.yandex-map-legend__item
+              +checkbox-map("parks", 'Места отдыха', 'ic-map-parks.svg')
+          .yandex-map-filter
+            button.link.yandex-map-filter__agree.j-map-filter-apply.is-hidden
+              span.link__text Применить
+            button.link.yandex-map-filter__reset.j-map-filter-reset.is-disabled
+              span.link__text Сбросить
+        .yandex-map-legend__toggle
+          button.yandex-map-legend__toggle-btn.j-yandex-map-filter-list-toggle(aria-label='Объекты на карте')
+            span.yandex-map-legend__toggle-btn-text Объекты на карте
+            span.yandex-map-legend__toggle-btn-icon
+              svg(width='24', height='22', viewbox='0 0 24 22', fill='none', xmlns='http://www.w3.org/2000/svg')
+                path(d='M14.6171 4.59038L14.7538 4.61177L14.6167 4.62989L14.6132 4.6301L0.72 4.6301C0.715948 4.6301 0.71385 4.62942 0.71243 4.62882C0.710544 4.62802 0.708176 4.62656 0.705858 4.62424C0.703539 4.62192 0.702082 4.61956 0.701284 4.61767C0.700684 4.61625 0.7 4.61415 0.7 4.6101C0.7 4.60605 0.700684 4.60395 0.701284 4.60253C0.702082 4.60065 0.703539 4.59828 0.705858 4.59596C0.708176 4.59364 0.710543 4.59218 0.712429 4.59139C0.713849 4.59079 0.715946 4.5901 0.719999 4.5901L14.6132 4.5901C14.6149 4.5901 14.6162 4.59024 14.6171 4.59038ZM15.4016 5.22615L15.3158 4.61796L15.416 4.01312C15.7271 2.13348 17.3614 0.7 19.3291 0.7C21.5198 0.7 23.2957 2.47591 23.2957 4.66661C23.2957 6.85731 21.5198 8.63323 19.3291 8.63323C17.3286 8.63323 15.673 7.15166 15.4016 5.22615ZM9.3833 17.2986L9.24616 17.2804L9.38288 17.2591C9.38381 17.259 9.3851 17.2589 9.38684 17.2589H23.28C23.2821 17.2589 23.2837 17.259 23.2849 17.2593C23.2861 17.2595 23.2869 17.2598 23.2876 17.2601C23.2895 17.2609 23.2918 17.2624 23.2941 17.2647C23.2965 17.267 23.2979 17.2694 23.2987 17.2713C23.2993 17.2727 23.3 17.2748 23.3 17.2789C23.3 17.2829 23.2993 17.285 23.2987 17.2864C23.2979 17.2883 23.2965 17.2907 23.2941 17.293C23.2918 17.2953 23.2895 17.2968 23.2876 17.2976C23.2862 17.2982 23.2841 17.2988 23.28 17.2988L9.38684 17.2989L9.3833 17.2986ZM8.58446 16.6813L8.68419 17.2863L8.59806 17.8944C8.32552 19.8186 6.67047 21.2989 4.67089 21.2989C2.48019 21.2989 0.704273 19.5229 0.704273 17.3322C0.704273 15.1415 2.48019 13.3656 4.67089 13.3656C6.63951 13.3656 8.27438 14.8004 8.58446 16.6813ZM19.3291 8.59323C21.4977 8.59323 23.2557 6.83522 23.2557 4.66661C23.2557 2.498 21.4977 0.74 19.3291 0.74C17.1605 0.74 15.4025 2.498 15.4025 4.66661C15.4025 6.83522 17.1605 8.59323 19.3291 8.59323ZM0.744273 17.3322C0.744273 19.5008 2.50228 21.2589 4.67089 21.2589C6.83949 21.2589 8.5975 19.5008 8.5975 17.3322C8.5975 15.1636 6.8395 13.4056 4.67089 13.4056C2.50228 13.4056 0.744273 15.1636 0.744273 17.3322Z', fill='#262626', stroke='#262626', stroke-width='1.4', stroke-linecap='round')
+              svg(width='16', height='16', viewbox='0 0 16 16', fill='none', xmlns='http://www.w3.org/2000/svg')
+                path(d='M1 1L8 8M8 8L15 15M8 8L15 1M8 8L1 15', stroke='#262626', stroke-width='2', stroke-linecap='round')
+      .yandex-map__wrapper.j-lazy-function(data-json=require('@modules/yandex-map/data/data-deploy.json') data-lazy-function-enter="map:init")
+        .yandex-map__container
+          #yandex-map-infrastructure.yandex-map__base.j-yandex-map-base.is-loading
+
+

@@ -1,0 +1,57 @@
+.share
+  position: relative
+  &-tooltip
+    background-color: $color-white
+    border-radius: $radius
+    box-shadow: $shadow-card
+    padding: 15px
+    position: absolute
+    z-index: 2
+    min-width: 340px
+    display: none
+    &__close
+      position: absolute
+      right: 15px
+      top: 15px
+      cursor: pointer
+    &__list
+      +flex()
+      margin-bottom: 20px
+    &__copy
+      +inline-flex(false,center)
+      +transition(opacity)
+      &:hover
+        opacity: 0.7
+        cursor: pointer
+      &-icon
+        margin-right: 7px
+      &-text
+        color: $color-dark
+      svg
+        +size(16px)
+        color: $color-dark
+  &.is-open
+    .share
+      &-tooltip
+        display: block
+      &__button
+        z-index: 3
+        .btn-circle__icon-before
+          color: $color-gray-dark !important
+          background: $color-white
+          border-color: $color-white
+
+// MOD
+.share--mortgage
+  .share-tooltip
+    bottom: 0
+    right: 0
+    border: 1px solid $color-gray-light
+.share--flat
+  .share-tooltip
+    bottom: 0
+    right: 0
+    border: 1px solid $color-gray-light
+    &.is-open
+      .share
+        &__button

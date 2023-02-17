@@ -1,0 +1,33 @@
+.composition-right__item(data-tab="slider")
+  .composition-right__top Слайдер
+  .composition-right__bottom
+    .composition-right__bottom-inner
+      .composition-block-title Слайдер
+      .composition-block
+        .swiper-container.slider-default.slider-size--md.slider-button--accent.gs.gs-fadeInTop(data-gallery)
+          .swiper(data-swiper='{"autoplay": {"delay": 5000}}' data-slide="1")
+            .swiper-wrapper
+              each i in [1,2,3,4,5,6,7,8,9,10,11]
+                .swiper-slide
+                  .swiper-slide-inner
+                    img.swiper-lazy.image-cover(data-src=require("@image/common/image-common-1.jpg") alt="Изображение")
+                    .slider-caption Подпись к изображению
+                    .swiper-lazy-preloader
+      .composition-block-title Галерея
+      .composition-block
+        .l-flex.l-flex-3
+          .col
+            .hover-zoom.j-gallery.j-gallery-item(data-popup="testGallery" data-gallery=require('../../components/modules/composition/items/data-gallery.json'))
+              img.lazy.image-cover(src='assets/img/placeholder.gif' data-src=require('@image/common/image-common-1.jpg'), alt='')
+      .composition-block-title Галерея
+      .composition-block
+        .l-flex.l-flex-3.j-gallery(data-popup="gallery")
+          .col
+            .hover-zoom.j-gallery-item
+              img.lazy.image-cover(src='assets/img/placeholder.gif' data-src=require('@image/common/image-common-1.jpg'), alt='')
+          .col
+            .hover-zoom.j-gallery-item
+              img.lazy.image-cover(src='assets/img/placeholder.gif' data-src=require('@image/common/image-common-1.jpg'), alt='')
+          .col
+            .hover-zoom.j-gallery-item
+              img.lazy.image-cover(src='assets/img/placeholder.gif' data-src=require('@image/common/image-common-1.jpg'), alt='')

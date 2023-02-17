@@ -1,0 +1,127 @@
+{
+  "data": {
+    "zoom": 15,
+    "center": ["55.857078", "48.576758"],
+    "zoomMargin": 100,
+    "customZoomControl": true,
+    "markers": [
+      {
+        "coords": ["55.857078", "48.576758"],
+        "id": 23,
+        "icon": "../../assets/img/image-project-1.jpg",
+        "zIndex": 1,
+        "modifyClass": "object",
+        "type": "object",
+        "not_cluster": true,
+        "name": "За ручьём",
+        "typeName": "Жилой квартал",
+        "balloon": {
+          "tags": false,
+          "title": "За ручьём",
+          "deadline": "IV квартал 2023 года",
+          "walkToCenter": "10 минут",
+          "price": "от 4,9 млн.",
+          "rooms": "98 квартиры"
+        }
+      },
+      {
+        "id": 1,
+        "coords": ["55.860181", "48.571171"],
+        "iconType": "shops",
+        "icon": "../../assets/img/icons/ic-map-shops.svg",
+        "type": "shops",
+        "not_cluster": true,
+        "modifyClass": "infrastructure",
+        "color": "#27374",
+        "balloon": {
+          "title": "Магазины",
+          "text": "Описание"
+        }
+      },
+      {
+        "id": 2,
+        "coords": ["55.854416", "48.574683"],
+        "iconType": "shops",
+        "icon": "../../assets/img/icons/ic-map-shops.svg",
+        "type": "shops",
+        "not_cluster": true,
+        "modifyClass": "infrastructure",
+        "color": "#27374",
+        "balloon": {
+          "title": "Магазины",
+          "text": "Описание"
+        }
+      },
+      {
+        "id": 3,
+        "coords": ["55.856593", "48.575168"],
+        "iconType": "sсhool",
+        "icon": "../../assets/img/icons/ic-map-sсhool.svg",
+        "type": "sсhool",
+        "not_cluster": true,
+        "modifyClass": "infrastructure",
+        "color": "#27374",
+        "balloon": {
+          "title": "Школы/вузы",
+          "text": "Описание"
+        }
+      },
+      {
+        "id": 4,
+        "coords": ["55.857387", "48.575824"],
+        "iconType": "sсhool",
+        "icon": "../../assets/img/icons/ic-map-sсhool.svg",
+        "type": "sсhool",
+        "not_cluster": true,
+        "modifyClass": "infrastructure",
+        "color": "#27374",
+        "balloon": {
+          "title": "Школы/вузы",
+          "text": "Описание"
+        }
+      },
+      {
+        "id": 5,
+        "coords": ["55.856326", "48.577405"],
+        "iconType": "drugstore",
+        "icon": "../../assets/img/icons/ic-map-drugstore.svg",
+        "type": "drugstore",
+        "not_cluster": true,
+        "modifyClass": "infrastructure",
+        "color": "#27374",
+        "balloon": {
+          "title": "Медицина",
+          "text": "Описание"
+        }
+      },
+      {
+        "id": 6,
+        "coords": ["55.858468", "48.573623"],
+        "iconType": "drugstore",
+        "icon": "../../assets/img/icons/ic-map-drugstore.svg",
+        "type": "drugstore",
+        "not_cluster": true,
+        "modifyClass": "infrastructure",
+        "color": "#27374",
+        "balloon": {
+          "title": "Медицина",
+          "text": "Описание"
+        }
+      },
+      {
+        "id": 7,
+        "coords": ["55.852824", "48.566868"],
+        "iconType": "kindergarten",
+        "icon": "../../assets/img/icons/ic-map-kindergarten.svg",
+        "type": "kindergarten",
+        "not_cluster": true,
+        "modifyClass": "infrastructure",
+        "color": "#27374",
+        "balloon": {
+          "title": "Детский сад",
+          "text": "Описание"
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,120 @@
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  pointer-events: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  z-index: z(preloader);
+  @include flex(center, center);
+  // display: none;
+  &__background {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: calc(50% + 1px);
+    background: $color-accent-2;
+    transition: transform .6s ease-out, opacity .6s ease-out;
+    &:nth-child(1) {
+      top: 0;
+    }
+    &:nth-child(2) {
+      bottom: 0;
+    }
+  }
+}
+
+html._loading {
+  overflow: hidden
+}
+
+// Count
+.preloader {
+  overflow: hidden;
+  &__line {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    background-color: $color-blue;
+    height: 3px;
+    @include transition(width);
+    &-wrapper {
+      position: relative;
+      width: 100%;
+      margin: 0 auto;
+      transition: opacity .3s 0s ease;
+      opacity: 0;
+      @include before() {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: $color-gray-light;
+      }
+    }
+    &-left, &-right {
+      position: absolute;
+      top: 12px;
+      color: $color-accent-3;
+      font-size: 20px;
+      //letter-spacing: .1em;
+    }
+    &-right {
+      right: 0;
+    }
+    &-left {
+      left: 0;
+    }
+  }
+}
+.preloader._loading {
+  .preloader__line-wrapper {
+    opacity: 1;
+    transition: opacity .5s .3s ease;
+  }
+}
+
+@keyframes ellipsis1 {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes ellipsis3 {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+
+@keyframes ellipsis2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(24px, 0);
+  }
+};
+
+// STATE
+.preloader._ready {
+  .preloader__background {
+    opacity: 0;
+    &:nth-child(1) {
+      transform: translateY(-100%);
+    }
+    &:nth-child(2) {
+      transform: translateY(100%);
+    }
+  }
+}

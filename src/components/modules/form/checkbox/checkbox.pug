@@ -1,0 +1,20 @@
+mixin checkbox-privacy(theme='black')
+  label.form-checkbox.form-checkbox--privacy(class=theme==='black'?'checkbox--black':'checkbox--white')
+    input(type="checkbox" name="agreement" checked required).visually-hidden
+    i.form-checkbox__icon
+      svg(viewBox="0 0 16 11" fill="none" xmlns="http://www.w3.org/2000/svg")
+        path(d="M1.37205 3.83446C1.18757 3.62898 0.871444 3.61196 0.665966 3.79644C0.460488 3.98092 0.443468 4.29705 0.62795 4.50252L1.37205 3.83446ZM5.63914 10.084C5.82362 10.2895 6.13974 10.3065 6.34522 10.1221C6.5507 9.93757 6.56772 9.62144 6.38324 9.41597L5.63914 10.084ZM15.352 1.35515C15.5481 1.16077 15.5495 0.844188 15.3551 0.648046C15.1608 0.451905 14.8442 0.450475 14.648 0.644854L15.352 1.35515ZM5.81868 9.39485C5.62254 9.58923 5.62111 9.90581 5.81549 10.102C6.00986 10.2981 6.32644 10.2995 6.52258 10.1051L5.81868 9.39485ZM0.62795 4.50252L5.63914 10.084L6.38324 9.41597L1.37205 3.83446L0.62795 4.50252ZM14.648 0.644854L5.81868 9.39485L6.52258 10.1051L15.352 1.35515L14.648 0.644854Z")
+    span.form-checkbox__text Нажимая на кнопку, вы даете согласие на обработку своих
+      a(href="privacy-policy.html" target="_blank")  персональных&nbsp;данных
+  .messages
+
+mixin checkbox-simple(text, name=false, checked=true)
+  label.form-checkbox.form-checkbox--simple.form-checkbox--black&attributes(attributes)
+      input(type="checkbox" name= name checked= checked required).visually-hidden
+      i.form-checkbox__icon
+        svg(viewBox="0 0 16 11" fill="none" xmlns="http://www.w3.org/2000/svg")
+          path(d="M1.37205 3.83446C1.18757 3.62898 0.871444 3.61196 0.665966 3.79644C0.460488 3.98092 0.443468 4.29705 0.62795 4.50252L1.37205 3.83446ZM5.63914 10.084C5.82362 10.2895 6.13974 10.3065 6.34522 10.1221C6.5507 9.93757 6.56772 9.62144 6.38324 9.41597L5.63914 10.084ZM15.352 1.35515C15.5481 1.16077 15.5495 0.844188 15.3551 0.648046C15.1608 0.451905 14.8442 0.450475 14.648 0.644854L15.352 1.35515ZM5.81868 9.39485C5.62254 9.58923 5.62111 9.90581 5.81549 10.102C6.00986 10.2981 6.32644 10.2995 6.52258 10.1051L5.81868 9.39485ZM0.62795 4.50252L5.63914 10.084L6.38324 9.41597L1.37205 3.83446L0.62795 4.50252ZM14.648 0.644854L5.81868 9.39485L6.52258 10.1051L15.352 1.35515L14.648 0.644854Z")
+      if text
+        span.form-checkbox__text= text
+
+

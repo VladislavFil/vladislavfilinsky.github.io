@@ -1,0 +1,7 @@
+mixin socialLink(icon, link, title)
+  li.social__item
+    a(href=link target="_blank").social__link
+      img.social__link-icon(src=require("@image/icons/social/" + icon), alt="Соц.сети" title= title)
+
+ul.social__list
+  +socialLink('social-telegram.svg','https://t.me/VladislavFilinskyDev', 'Telegram')

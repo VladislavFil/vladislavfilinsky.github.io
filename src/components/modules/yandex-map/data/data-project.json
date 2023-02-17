@@ -1,0 +1,70 @@
+{
+  "data": {
+    "zoom": 15,
+    "zoomMargin": 100,
+    "customZoomControl": true,
+    "center": [55.751141, 37.628314],
+    "markers": [
+      {
+        "coords": [55.747637, 37.610745],
+        "id": 23,
+        "icon": "./assets/img/image-project-3.jpg",
+        "zIndex": 1,
+        "modifyClass": "object",
+        "type": "object",
+        "not_cluster": true,
+        "name": "За ручьём",
+        "href": "project.html",
+        "typeName": "Жилой квартал",
+        "balloon": {
+          "tags": ["БИЗНЕС-КЛАСС", "ЦЕНТР"],
+          "title": "За ручьём",
+          "deadline": "IV квартал 2023 года",
+          "walkToCenter": "10 минут",
+          "price": "от 4,9 млн.",
+          "rooms": "98 квартиры"
+        }
+      },
+      {
+        "coords": [55.751458, 37.642253],
+        "id": 24,
+        "icon": "./assets/img/image-project-4.jpg",
+        "zIndex": 1,
+        "modifyClass": "object",
+        "type": "object",
+        "not_cluster": true,
+        "href": "project.html",
+        "name": "Добрый дом",
+        "typeName": "Жилой дом",
+        "balloon": {
+          "tags": ["ЦЕНТР"],
+          "title": "Добрый дом",
+          "deadline": "IV квартал 2023 года",
+          "walkToCenter": "15 минут",
+          "price": "от 4,4 млн.",
+          "rooms": "124 квартиры"
+        }
+      },
+      {
+        "coords": [55.746436, 37.630305],
+        "id": 25,
+        "icon": "./assets/img/image-project-5.jpg",
+        "zIndex": 1,
+        "modifyClass": "object",
+        "type": "object",
+        "not_cluster": true,
+        "href": "project.html",
+        "name": "Западный квартал",
+        "typeName": "Жилой комплекс",
+        "balloon": {
+          "tags": ["ЦЕНТР"],
+          "title": "Западный квартал",
+          "deadline": "IV квартал 2024 года",
+          "walkToCenter": "15 минут",
+          "price": "от 6,5 млн.",
+          "rooms": "44 квартиры"
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,118 @@
+.form {
+  &__label {
+    position: absolute;
+    @include scale(top, 17px, 17px, 17px);
+    left: 20px;
+    color: $form-text;
+    @include font-size(text);
+    cursor: text;
+    @include transition(top, font-size, color);
+    span {
+      color: $color-accent;
+    }
+  }
+  &__input,
+  &__select,
+  &__custom-select,
+  &__photo-button {
+    width: 100%;
+    border-radius: $form-radius;
+    font-size: 16px;
+    line-height: 56px;
+    height: 56px;
+    color: $form-text;
+    box-shadow: none;
+    padding: 0 20px;
+    border: 1px solid $form-border;
+    @include transition(background, border, color);
+    &:placeholder {
+      color: $form-placeholder;
+    }
+    &:hover {
+      outline: 0;
+      border-color: $form-active;
+    }
+    &:focus {
+      outline: 0;
+      border-color: $form-text;
+    }
+    &[disabled='disabled'],
+    &[disabled] {
+      cursor: not-allowed;
+      pointer-events: none;
+      opacity: 0.5;
+    }
+  }
+}
+
+// THEME
+.form__input {
+  &--white {
+    background: $color-white;
+    color: $form-text;
+  }
+  &--gray {
+    background: $color-gray-light;
+    color: $form-text;
+  }
+}
+
+// Form
+.form {
+  &__group {
+    width: 100%;
+    position: relative;
+  }
+
+  // Label
+  &__label {
+    display: block;
+    .form__input,
+    + form__radio,
+    + form__select,
+    + form__checkbox,
+    + form__switch {
+      margin-top: 10px;
+    }
+  }
+
+  // Select default (not plugin)
+  &-select:not(.j-select) {
+    background-color: #fff;
+    background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
+    &:not([multiple]) {
+      background: #fff url("data:image/svg+xml;charset=utf8,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%204%205'%3E%3Cpath%20fill='%23667189'%20d='M2%200L0%202h4zm0%205L0%203h4z'/%3E%3C/svg%3E") no-repeat right .55rem center /.5rem .6rem;
+      padding-right: 1.2rem;
+    }
+  }
+
+  // Textarea
+  &__textarea {
+    height: 120px;
+    // resize: vertical
+    // min-height: 60px
+    // max-height: 120px
+    line-height: 1.4;
+    padding-top: 10px;
+  }
+  &-info {
+    font-size: 12px;
+    color: $color-gray-light;
+    margin: 8px 0 0 10px;
+  }
+}
+
+// VALIDATE (plugin validata.js)
+._filled {
+  .form__label {
+    top: 2px;
+    font-size: 12px;
+    color: $color-gray;
+  }
+}
+
+// Consent
+.form__consent {
+  width: 100%;
+  position: relative;
+}

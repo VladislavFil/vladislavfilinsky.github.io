@@ -1,0 +1,31 @@
+.composition-right__item(data-tab="buttons")
+  .composition-right__top Кнопки
+  .composition-right__bottom
+    .composition-right__bottom-inner
+      .composition-block-title Основная
+      .composition-block
+        +button({url: '#',theme: 'accent-2',size: 'md',text: 'Отправить',})
+        +button({url: '#',theme: 'accent-2',size: 'sm',text: 'Отправить',})
+        +button({url: '#',theme: 'accent-2',size: 'xs',text: 'Отправить',})
+
+      .composition-block-title С иконкой
+      .composition-block
+        +button({url: '#',theme: 'accent-2',size: 'md',text: 'Отправить',iconAfter: {name: 'arrow-l'},})
+
+      .composition-block-title Ожидание
+      .composition-block
+        +button({className: 'is-loading',url: '#',theme: 'accent-2',size: 'md',text: 'Отправить'})
+
+      .composition-block-title Выключена
+      .composition-block
+        +button({className: 'is-disabled',url: '#',theme: 'accent-2',size: 'md',text: 'Отправить'})
+
+      .composition-block-title Круглая
+      .composition-block
+        .btn-circle-wrap-row
+          +button({className: 'not-stroke',url:'tel:+73452463291',theme: 'gray',size: 'sm',
+            iconBefore: {name: 'arrow-l'}
+          }, 'btn-circle')
+          +button({className: 'not-stroke',theme: 'gray',size: 'sm',
+            iconBefore: {name: 'map'}
+          }, 'btn-circle')

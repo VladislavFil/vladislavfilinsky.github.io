@@ -1,0 +1,32 @@
+// МИКСИНЫ
+// Загрузка шрифтов
+@mixin font($family, $src, $weight: false, $style: false) {
+  @font-face {
+    font-display: swap;
+    font-family: quote($family);
+    src: url('../fonts/' + $src + '.woff2') format('woff2');
+
+    @if ($weight) {
+      font-weight: $weight;
+    }
+
+    @if ($style) {
+      font-style: $style;
+    }
+  }
+}
+
+// Добавление шрифтов
+// Font connections
+@include font("FordAntenna", "FordAntenna-Bold", 700);
+@include font("FordAntenna", "FordAntenna-Light", 300);
+@include font("ProximaNova", "ProximaNova-Regular");
+@include font("ProximaNova", "ProximaNova-SemiBold", 500);
+@include font("ProximaNova", "ProximaNova-Bold", 700);
+
+// Typography settings
+$font-text: "ProximaNova", sans-serif;
+$font-title: 'ProximaNova', sans-serif;
+$font-size: 16px;
+$line-height: 1.5;
+$content-size: 1280px;

@@ -1,0 +1,101 @@
+.dev-sitemap {
+  &__text {
+    font-size: 16px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-family: $font-title;
+    color: $color-gray;
+  }
+  ol {
+    margin-bottom: 20px;
+    font-family: $font-title;
+    font-size: 16px;
+    font-weight: 500;
+  }
+  &__inner {
+    display: inline-block;
+    font-size: 16px;
+    a {
+      color: $color-blue;
+      @include state-color($color-blue, lighten($color-blue, 15%));
+    }
+  }
+  &__tags {
+    display: inline-flex;
+    flex-wrap: wrap;
+    margin-left: 10px;
+    position: relative;
+    top: -3px;
+  }
+  &__tags-legend {
+    @include inline-flex();
+    flex-wrap: wrap;
+    .dev-sitemap__tag {
+      margin-bottom: 10px;
+    }
+  }
+  &__tag {
+    display: inline-block;
+    border-radius: 37px;
+    padding: 4px 8px;
+    white-space: nowrap;
+    font-size: 10px;
+    text-transform: uppercase;
+    line-height: 1;
+    color: #333;
+    &::before {
+      color: #f2f2f2;
+    }
+    @include not-last() {
+      margin-right: 10px;
+    }
+    &_none {
+      background-color: rgba(255, 49, 49, 0.6);
+      @include before('не готово');
+    }
+    &_work {
+      background-color: rgba(109, 104, 255, 0.6);
+      @include before('в работе');
+    }
+    &_almost {
+      background-color: rgba(230, 172, 13, 0.6);
+      @include before('готов десктоп');
+    }
+    &_completed {
+      background-color: rgba(38, 191, 86, 0.6);
+      @include before('готово');
+    }
+    &_front {
+      background-color: rgba(34, 34, 34, 0.6);
+      @include before('на фронте');
+    }
+    &_back {
+      background-color: rgba(34, 34, 34, 0.6);
+      @include before('на бэке');
+    }
+    &_dev {
+      background-color: rgba(34, 34, 34, 0.6);
+      @include before('на дэве');
+    }
+    &_prod {
+      background-color: rgba(34, 34, 34, 0.6);
+      @include before('на бою');
+    }
+    &_test-required {
+      background-color: rgba(253, 182, 255, 0.8);
+      @include before('требуется тест');
+    }
+    &_requires-finalizing {
+      background-color: rgba(255, 85, 0, 0.6);
+      @include before('необходимо доработать');
+    }
+    &_notdesign {
+      background-color: rgba(255, 49, 49, 0.6);
+      @include before('нет дизайна');
+    }
+    &_not-relevant {
+      background-color: rgba(153, 153, 153, 0.6);
+      @include before('не актуально');
+    }
+  }
+}
